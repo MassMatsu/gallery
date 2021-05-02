@@ -87,9 +87,11 @@ Gallery.prototype.prevImage = function () {
 
 Gallery.prototype.chooseImage = function (e) {
   if (e.target.classList.contains('modal-img')) {
-    const selected = e.target;
-    this.setMainImage(selected);
-    selected.classList.add('selected')
+    const selected = this.modalImages.querySelector('.selected')
+    
+    selected.classList.remove('selected')
+    e.target.classList.add('selected')
+    this.setMainImage(e.target);
   }
 };
 
